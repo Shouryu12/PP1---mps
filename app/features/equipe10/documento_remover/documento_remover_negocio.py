@@ -6,9 +6,12 @@ class DocumentoRemoverNegocio:
     def exibir(documento_id):
         documento = Documento(documento_id)
 
+        if documento.get_id() is None:
+            return redirect(url_for('documento_listar'))
+
         if request.method == 'POST':
-            documento.desativa()
+            documento.deleta()
         else:
-            return render_template('documento_desativar.html', documento=documento)
+            return render_template('documento_remover.html',documento=documento)
 
         return redirect(url_for('documento_listar'))

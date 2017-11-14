@@ -3,7 +3,7 @@ from app import app
 from ....utils.front_helper import *
 
 
-@app.route('/documento')
+@app.route('/documento', methods=['GET', 'POST'])
 @login_required
 @verifica_permissao
 def documento_listar():
