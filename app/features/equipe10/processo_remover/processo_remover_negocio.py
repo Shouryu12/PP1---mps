@@ -7,6 +7,9 @@ class ProcessoRemoverNegocio:
     def exibir(processo_id):
         processo = Processo(processo_id)
 
+        if processo.get_id() is None:
+            return redirect(url_for('processo_listar'))
+
         if request.method == 'POST':
             processo.desativa()
         else:

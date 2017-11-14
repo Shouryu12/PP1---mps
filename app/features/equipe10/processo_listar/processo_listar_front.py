@@ -3,8 +3,8 @@ from app import app
 from ....utils.front_helper import *
 
 
-@app.route('/processo')
-@login_required
-@verifica_permissao
+@app.route('/processo', methods=['GET', 'POST'])
+#@login_required
+#@verifica_permissao
 def processo_listar():
     return ProcessoListarNegocio.exibir()

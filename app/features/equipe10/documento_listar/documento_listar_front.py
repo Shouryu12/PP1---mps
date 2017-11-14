@@ -3,8 +3,8 @@ from app import app
 from ....utils.front_helper import *
 
 
-@app.route('/documento')
-@login_required
-@verifica_permissao
+@app.route('/documento', methods=['GET', 'POST'])
+#@login_required
+#@verifica_permissao
 def documento_listar():
     return DocumentoListarNegocio.exibir()
